@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Día de la Madre Rockera 🎸</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      color: #222;
+      margin-top: 100px;
+    }
+    h1 { color: #b30059; font-size: 40px; }
+    p { font-size: 20px; margin-bottom: 30px; }
+    h3, h2 { margin-top: 30px; color: #1e90ff; }
+    audio {
+      margin-top: 15px;
+      width: 300px;
+    }
+    button {
+      background: #b30059;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    button:hover { background: #1CBADD; }
+
+    /* Fade lento */
+    .oculto {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 3s ease, max-height 3s ease;
+    }
+    .mostrar {
+      opacity: 1;
+      max-height: 500px; /* suficiente para mostrar el texto completo */
+    }
+  </style>
+</head>
+<body>
+  <h1>💐 ¡Feliz Día de la Madre Rockera! 💐</h1>
+  <p>Mamá, gracias por todo tu amor, tu paciencia y por enseñarme a escuchar buena música 🎶</p>
+
+  <button id="boton">Mensaje sorpresa</button>
+
+  <h3>🎸 Un poco de Los Redondos para vos 🎸</h3>
+  <audio controls>
+    <source src="los_redondos.mp3" type="audio/mp3">
+    Tu navegador no soporta este audio.
+  </audio>
+  <audio controls>
+    <source src="tema4.mp3" type="audio/mp3">
+    Tu navegador no soporta este audio.
+  </audio>
+
+  <h2>Otros de tus temas favoritos 💙</h2>
+  <audio controls>
+    <source src="tema2.mp3" type="audio/mp3">
+    Tu navegador no soporta este audio.
+  </audio>
+  <audio controls>
+    <source src="tema3.mp3" type="audio/mp3">
+    Tu navegador no soporta este audio.
+  </audio>
+
+  <!-- NUEVO BLOQUE -->
+  <h2>🎉 Razones por las que sos la más genial 🎉</h2>
+  <p class="oculto">🌟 Siempre me bancas cuando me pongo pesado, me ayudas con la tarea y te das cuenta cuando me pongo mal, jugas conmigo cuando estoy aburrido. 🌟</p>
+  <p class="oculto">💙 Por muchas cosas más… Y más que nada… ¡por todas las sonrisas que me regalás! 💙</p>
+  <p class="oculto">💙¡¡¡SOS LA MEJOR!!!💙</p>
+  <p class="oculto">❤️❤️ Espero que te haya gustado mucho mamá (: ❤️❤️</p>
+  <p class="oculto">Con cariño: Ivo 💙</p>
+
+  <script>
+    const frases = [
+      "💖 Sos la mejor mamá del mundo 💖",
+      "🌸 Gracias por todo lo que hacés por mí 🌸",
+      "🎸 Sos mi reina del pogo y del corazón 🤘",
+      "💐 Te quiero con toda mi alma 💐",
+      "💬 Gracias por bancarme siempre, incluso cuando soy insoportable 😅",
+      "🌷 Mamá, tu amor vale más que cualquier canción 🎶",
+      "🔵⚪ Indesingente vos sos un botón, vos sos la amargura... 🔵⚪",
+      "🎶 El que no llora no mama, y el que no afana es un gil... En el horno se vamo' a encontrar 🎶",
+      "🎶 No lo soñeeee ieeee, se enderezó y brindó a tu suerte 🎸"
+    ];
+
+    const boton = document.getElementById("boton");
+    const textos = document.querySelectorAll(".oculto");
+
+    boton.addEventListener("click", function() {
+      const random = Math.floor(Math.random() * frases.length);
+      alert(frases[random]);
+
+      // Mostrar los párrafos uno por uno con fade lento
+      textos.forEach((p, i) => {
+        setTimeout(() => {
+          p.classList.add("mostrar");
+        }, 1500 * (i + 1)); // más lento entre párrafos
+      });
+    });
+  </script>
+</body>
+</html>
